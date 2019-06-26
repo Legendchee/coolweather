@@ -2,7 +2,7 @@ package bnuz.edu.cn.ljqweather.gson;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Lifestyle {
+public class Suggestion {
 
     //舒适指数
     @SerializedName("comf")

@@ -13,9 +13,7 @@ public class Forecast {
     public More more;
 
     public class Temperature{
-        @SerializedName("tmp_max")
         public String max;
-        @SerializedName("tmp_min")
         public String  min;
 
     }

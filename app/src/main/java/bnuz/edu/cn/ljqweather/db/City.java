@@ -3,10 +3,10 @@ package bnuz.edu.cn.ljqweather.db;
 import org.litepal.crud.DataSupport;
 
 public class City extends DataSupport {
-    int id;
-    String cityName;
-    int cityCode;
-    int provinceId;
+    private int id;
+    private String cityName;
+    private int cityCode;
+    private int provinceId;
 
     public int getId()
     {

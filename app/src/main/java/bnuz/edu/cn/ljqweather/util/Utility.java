@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Utility {
-    private static String response;
+    //private static String response;
 
     /**
      * 解析和处理服务器返回的省级数据
@@ -47,8 +47,8 @@ public class Utility {
         {
             try{
                 JSONArray allCities=new JSONArray(response);
-                for(int i=0;i<allCities.length();i++)
-                {JSONObject cityObject=allCities.getJSONObject(i);
+                for(int i=0;i<allCities.length();i++) {
+                    JSONObject cityObject=allCities.getJSONObject(i);
                     City city=new City();
                     city.setCityName(cityObject.getString("name"));
                     city.setCityCode(cityObject.getInt("id"));
@@ -105,15 +105,12 @@ public class Utility {
 
             // 将整个json实例化保存在jsonObject中
             JSONObject jsonObject = new JSONObject(response);
-           /* // 从jsonObject中取出键为"HeWeather6"的数据,并保存在数组中
-            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather6");
+           //从jsonObject中取出键为"HeWeather6"的数据,并保存在数组中
+           JSONArray jsonArray = jsonObject.getJSONArray("HeWeather6");
             // 取出数组中的第一项,并以字符串形式保存
             String weatherContent = jsonArray.getJSONObject(0).toString();
             // 返回通过Gson解析后的Weather对象*/
-            Gson g=new Gson();
-            Weather weather=  g.fromJson(jsonObject.toString(),Weather.class);
-
-           return weather;
+            return new Gson().fromJson(weatherContent,Weather.class);
 
         } catch (Exception e) {
             e.printStackTrace();

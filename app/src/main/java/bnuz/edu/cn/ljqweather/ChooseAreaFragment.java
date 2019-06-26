@@ -20,6 +20,7 @@ import android.widget.Toast;
 import bnuz.edu.cn.ljqweather.db.City;
 import bnuz.edu.cn.ljqweather.db.County;
 import bnuz.edu.cn.ljqweather.db.Province;
+import bnuz.edu.cn.ljqweather.gson.Weather;
 import bnuz.edu.cn.ljqweather.util.HttpUtil;
 import bnuz.edu.cn.ljqweather.util.Utility;
 
@@ -45,7 +46,6 @@ public class ChooseAreaFragment extends Fragment {
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private List<String> dataList=new ArrayList<>();
-
    private List<Province> provincesList;
    private List<City> cityList;
    private List<County> countyList;
@@ -95,11 +95,12 @@ public class ChooseAreaFragment extends Fragment {
                 {
                     String weatherId=countyList.get(position).getweatherId();
                     if(getActivity() instanceof MainActivity) {
-                        Intent intent = new Intent(getActivity(), WeatherActivity.class);
-                        intent.putExtra("weather_id", weatherId);
+                        Intent intent=new Intent(getActivity(), WeatherActivity.class);
+                        intent.putExtra("weather_id",weatherId);
                         startActivity(intent);
                         getActivity().finish();
                     }
+
                     else if(getActivity() instanceof WeatherActivity)
                     {
                         WeatherActivity activity=(WeatherActivity)getActivity();
@@ -107,6 +108,7 @@ public class ChooseAreaFragment extends Fragment {
                         activity.swipeRefresh.setRefreshing(true);
                         activity.requestWeather(weatherId);
                     }
+
                 }
             }
         });

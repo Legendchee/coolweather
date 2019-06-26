@@ -3,7 +3,7 @@ package bnuz.edu.cn.ljqweather.db;
 import org.litepal.crud.DataSupport;
 
 public class County extends DataSupport{
-    int id;
+    private int id;
     private String countyName;//县名
     private String weatherId;
     private int cityId;
